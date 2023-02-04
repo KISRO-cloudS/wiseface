@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+
+	<title>SolveSquare</title>
+	<link rel="icon"  href="{% static 'images/resources/t.png' %}"sizes="16x16" alt="">
+
+
+    <link rel="stylesheet" href="{% static 'css/main.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/color.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/so.css' %}">
+
+
+
+
+</head>
+<body style="background:whitesmoke">
+
+
+<div class="se-pre-con"></div>
+<div class="theme-layout">
+
+	<div class="responsive-header">
+		<div class="mh-head first Sticky">
+
+			<span class="mh-text">
+				<a href="newsfeed.html" title=""><h1>SolveSquare</h1></a>
+			</span>
+
+		</div>
+
+
+		<div class="mh-head second">
+
+		</div>
+
+
+
+
+
+
+
+
+	</div><!-- responsive header -->
+
+	
+
+	<div class="topbar stick">
+		<div class="logo">
+
+		<a title="" href="newsfeed.html"><h1><b style="color:rgb(0, 140, 255) ;">S</b><b style="color:rgb(49, 177, 49) ;">o</b><b style="color: rgb(0, 140, 255);">l</b><b style="color: rgb(49, 177, 49);">v</b><b style="color:rgb(0, 140, 255) ;">e</b><b style="color: rgb(49, 177, 49);">S</b></b><b style="color:rgb(0, 140, 255) ;">q</b><b style="color:rgb(49, 177, 49) ;">u</b><b style="color: rgb(0, 140, 255);">a</b><b style="color: rgb(49, 177, 49);">r</b><b style="color:rgb(0, 140, 255) ;">e</b></h1></a>
+
+		</div>
+
+		<div class="top-area">
+			<div class="top-search">
+
+			</div>
+
+		<div class="user-img">
+				
+			</div>
+
+		</div>
+	</div><!-- topbar -->
+
+
+
+
+
+
+
+<!-- right sidebar menu -->
+
+
+
+<div class="dropdown" style="float:left;">
+  <button class="dropbtn"><i class="fa fa-chevron-down"></i></button>
+    <div class="dropdown-content" style="left:0;">
+  		{% if user.profile.profile_image %}
+       <p><a href="{% url 'profile' %}" title="Edit-Profile" data-toggle="tooltip" ><i class=""><img style=" height: 70px;width: 500px"src="{{ user.profile.profile_image.url }}" alt="{{ user.username}}"></i></a></p>
+   {% endif %}
+
+  <a href="{% url 'postlist'  %}" title="Home" data-toggle="tooltip" ><h4><i class="ti-home"></i></h4></a>
+
+  <a href="{% url 'postform' %}" title="Post" data-toggle="tooltip" ><h4><i class="fa fa-edit"></i></h4></a>
+
+
+  <a href="{% url 'twoA' %}" title="Solution" data-toggle="tooltip" ><h4><i class="ti-folder"></i></h4></a>
+
+
+
+
+  <h7 style="color: black">LogOut <h4><a href="{% url 'landing_page' %}" class="ti-power-off" style="color: blue"><i></i> </a></h4></h7>
+
+
+  </div>
+</div>
+
+
+
+  </div>
+</div>
+
+
+		<section>
+		<div class="gap2 gray-bg">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="row merged20" id="page-contents">
+							<div class="col-lg-3">
+								<aside class="sidebar static left">
+								</aside>
+							</div><!-- sidebar -->
+<!-- centerl meta -->
+
+
+
+
+
+
+<div class="col-lg-6">
+
+<div class="alert alert-success" role="alert">
+
+
+
+
+	<p ><center><h7 style="background-color:; color: rgb(130, 160, 243) "><b> Solvers Below  </b></h7></center></p>
+
+
+<!--<p ><a href="{% url 'e_store'  %}"><center><h2 style="color:white;"><i class="fa fa-shopping-cart"></i></h2></center></a></p>-->
+
+		</div>
+
+
+
+{% block content %}
+
+{% for profile in profiles %}
+
+<div class="ui segment">
+	<a href="{% url 'userp' username=profile.user %}"> <br><img style="border-radius:1000px; height: 50px;width: 50px"src="{{profile.profile_image.url}}"  alt=""></br></a>
+	{{profile}}
+	<br>
+	<a href="{% url 'chat-detail-view' profile.pk %} ">
+	<button class="ui primary button" style="color: black">Chat</button>
+
+	</a>
+</div>
+
+{% endfor %}
+
+{% endblock content %}
+
+
+
+
+
+							<!-- centerl meta -->
+							<!-- centerl meta  wano foooor -->
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+
+
+	
+
+
+
+</div>.
+
+
+
+<div class="side-panel">
+		<center><h4 style="color: rgb(49, 177, 49)">LogOut</h4></center>
+		<center><a href="{% url 'logout' %}" ><i></i><button class="btn btn-primary">logout</button></a></center>
+
+</div><!-- side panel -->	
+
+
+
+			<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-4">
+						<div class="widget">
+							<div class="foot-logo">
+								<div class="logo">
+								<a href="index-2.html" title=""><img  style="height: 60px ;border-radius:1000px" src="{% static 'images/resources/t.png' %}" alt=""></a>
+								</div>	
+								<p>
+									Ashraf Kisoro Lutaaya took this simple idea and built it into a Problem solver plateform inorder to make you happy life
+								</p>
+							</div>
+							<ul class="location">
+								<li>
+									<i class="ti-email"></i>
+									<p>solvex@gmail.com</p>
+								</li>
+							
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>follow</h4></div>
+						<ul class="list-style">
+							<li><i class="fa fa-facebook-square"></i> <a  title=""> #solvex</a></li>
+							<li><i class="fa fa-twitter-square"></i><a  title="">#solvex</a></li>
+							<li><i class="fa fa-instagram"></i><a  title="">#solvex</a></li>
+							<li><i class="fa fa-google-plus-square"></i> <a >solvex@gmail.com</a></li>
+							<li><i class="fa fa-pinterest-square"></i> <a  title="">#solvex</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>Navigate</h4></div>
+						<ul class="list-style">
+							<li><a href="{% url 'about_us' %}"  title="">about us</a></li>
+							
+				
+						</ul>
+					</div>
+				</div>
+					<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>useful links</h4></div>
+						<ul class="list-style">
+					
+							<li><a href="{% url 'usage' %}"  title="">Support & Help</a></li>
+							
+						</ul>
+					</div>
+				</div>
+					
+				</div>
+			</div>
+		</footer>
+
+	<script src="{% static 'js/main.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/map-init.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+
+</body>	
+</html>
+
+

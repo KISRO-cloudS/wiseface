@@ -1,0 +1,59 @@
+
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+	<title>Wiseface</title>
+	<link rel="icon"  href="{% static 'images/resources/t.png' %}"sizes="16x16" alt="">
+    
+    
+    <link rel="stylesheet" href="{% static 'css/main.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/color.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/so.css' %}">
+
+</head>
+<body style="background:rgb(244, 248, 244)">
+<!--<div class="se-pre-con"></div>-->
+<div class="theme-layout">
+	<div class="container-fluid pdng0">
+		<div class="">
+			<div class="">
+				<div class="login-reg-bg">
+					<center><div class="log-reg-area sign">
+						<h2 class="log-title">Join Now</h2>
+							
+						<form method="post">
+							<div class="form-group">	
+							
+							<div class="submit-btns">
+								<a href="{% url 'login' %}" ><button class="mtr-btn signup" type="button"><span>Login</span></button></a>
+
+								<a href="{% url 'register' %}" ><button class="mtr-btn signup" type="button"><span>SignUp</span></button></a>
+							</div>
+						</form>
+					</div>
+					</center>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	
+	<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.min.js"></script>
+	<script src="js/script.js"></script>
+
+</body>	
+
+</html>

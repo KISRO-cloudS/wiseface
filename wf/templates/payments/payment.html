@@ -1,0 +1,68 @@
+
+{% for v in var %}
+<h1>{{v.title}}</h1>
+<p>{{v.description}}</p>
+<p>{{v.amount }}</p>
+{% endfor %}
+
+ <div id="paypal-button-container"></div>
+
+
+	   <script src="https://www.paypal.com/sdk/js?client-id=AZ2FE71-O0gP4NC9JHaIX4dBpP7IBKtWLyZoND0qA_sCGrs0ZYW5P-6d0NoPaWbT8eGZPqKMIwfJMgwW&currency=USD&intent=capture&enable-funding=venmo" data-sdk-integration-source="integrationbuilder"></script>
+     
+<script>
+
+	         const paypalButtonsComponent = paypal.Buttons({
+              // optional styling for buttons
+              // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
+              style: {
+                color: "gold",
+                shape: "rect",
+                layout: "vertical"
+              },
+
+              // set up the transaction
+              createOrder: (data, actions) => {
+                  // pass in any options from the v2 orders create call:
+                  // https://developer.paypal.com/api/orders/v2/#orders-create-request-body
+                  const createOrderPayload = {
+                      purchase_units: [
+                          {
+                              amount: {
+                                  value: "10.33"
+                              }
+                          }
+                      ]
+                  };
+
+                  return actions.order.create(createOrderPayload);
+              },
+
+              // finalize the transaction
+              onApprove: (data, actions) => {
+                  const captureOrderHandler = (details) => {
+                      const payerName = details.payer.name.given_name;
+                      console.log('Transaction completed');
+
+                      window.location.replace({% url 'payment-completed' %})
+                  };
+
+                  return actions.order.capture().then(captureOrderHandler);
+              },
+
+              // handle unrecoverable errors
+              onError: (err) => {
+                  console.error('An error prevented the buyer from checking out with PayPal');
+
+                  window.location.replace({% url 'payment-failed' %})
+              }
+          });
+
+          paypalButtonsComponent
+              .render("#paypal-button-container")
+              .catch((err) => {
+                  console.error('PayPal Buttons failed to render');
+              });
+
+</script>
+      
