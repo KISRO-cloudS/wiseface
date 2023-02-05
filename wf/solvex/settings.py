@@ -101,7 +101,7 @@ AUTHENTICATION_BACKENDS =[
 
 ]
 
-WSGI_APPLICATION = 'solvex.wsgi.application'
+WSGI_APPLICATION = 'solvex.wsgi:application'
 
 
 # Database
