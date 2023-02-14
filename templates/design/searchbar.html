@@ -1,0 +1,453 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+	<title>Wiseface</title>
+	<link rel="icon"  href="{% static 'images/resources/t.png' %}"sizes="16x16" alt="">
+    <link rel="stylesheet" href="{% static 'css/main.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/color.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/so.css' %}">
+    <link rel="stylesheet" href="{% static 'css/note.css' %}">
+</head>
+<body style="background:whitesmoke">
+<div class="se-pre-con"></div>
+<div class="theme-layout">
+	<div class="responsive-header">
+		<div class="mh-head first Sticky">
+			<span class="mh-text">
+				<a href="newsfeed.html" title=""><h1>Wiseface</h1></a>
+			</span>
+		</div>
+		<div class="mh-head second">
+		</div>
+	</div>
+
+	<div class="topbar stick">
+		<div class="logo">
+
+		<a title="" ><h1 style="color: blue"><b>Wiseface</b></h1></a>
+
+		</div>
+	</div>
+	<h1>.</h1>
+<center>
+
+
+	<p><form action="{% url 'search' %}" id="form" role="search" method="get" >
+	{% csrf_token %}
+  <input type="text" id="query" name="query"
+   placeholder=" Search..."
+   aria-label="Search through site content">
+  <button type="submit">Search</button>
+</form></p>
+<hr>
+
+<a href="{% url 'postlist'  %}" class="notificationContainer" title="Home" data-toggle="tooltip" ><h4><i class="fa fa-home fa-3px"></i></h4></a>
+
+<a href="{% url 'notification' %}" class="notificationContainer" title="Notification" data-toggle="tooltip" ><h4><i class="fa fa-bell"></i></h4>
+	<span class="notificationBadge">{{count_notifications}}</span>
+
+</a>
+
+
+<a href="{% url 'twoA' %}" class="notificationContainer" title="Solutions" data-toggle="tooltip" ><h4><i class="fa fa-plus-square"></i></h4></a>
+
+
+<a href="{% url 'profile' %}" class="notificationContainer" title=" Edit-Profile" data-toggle="tooltip" ><h4><i class="fa fa-user" ></i></h4></a>
+
+
+<a href="{% url 'landing_page' %}" class="notificationContainer" title="Logout" data-toggle="tooltip" ><h4><i class="ti-power-off"></i></h4></a>
+
+
+</center>
+<hr>
+
+
+
+
+
+
+
+
+<section>
+		<div class="gap2 gray-bg">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-16">
+						<div class="row merged20" id="page-contents">
+							<div class="col-lg-3">
+								<aside class="sidebar static left">
+								
+								</aside>
+							</div><!-- sidebar -->
+ 
+
+
+
+
+
+<div class="col-lg-6">
+
+
+
+		
+
+
+<div>
+
+</div>
+
+
+<div style="color: red">
+
+
+
+
+	<p ><center><h7 style="background-color:; color:black "><b>
+
+
+
+		</div>
+
+
+<div class="alert alert-success" role="alert">
+
+
+
+
+	<p ><center><h7 style="background-color:; color: rgb(130, 160, 243) "><b> Below Are Posts
+
+<div id="paypal-button-container"></div>
+
+
+		</div>
+
+
+<h5 style="background-color: white; padding: 20px">
+
+	                        <div class="submit-btns">
+
+									<a href="{% url 'profile-list-view' %}">
+												<button class="mtr-btn " type="button" ><span><h5>Follow Now</h5></span></button>
+											</a>
+
+											<h7 class=""><a href="{% url 'following' %}">Following: </a>{{profile.following.count}}</h7> <i style="color: blue">|</i>
+											<h7 class=""><a href="{% url 'followers' %}">Followers: </a>{{profile.user.following.count}}</h7>
+
+
+
+
+							</div>
+
+
+
+
+											<hr><br>
+
+	{% if user.profile.profile_image %}
+     <p><a href="{% url 'userp' username=user %}"  data-toggle="tooltip" ><i class=""><img style=" height: 190px;width: 200px; border-radius: 100%"src="{{ user.profile.profile_image.url }}" alt="{{ user.username}}"></i></a>
+     	</p>
+
+
+   {% endif %}
+
+
+
+   <a><i><b style="color: rgb(0, 140, 255)"><img  src="{% static 'images/resources/ar.png' %}" alt="">Slug:</b> <i style="color: grey">{{user.profile.my_slug}}</i></i></b>
+
+   </a>
+
+
+
+
+   </a>
+
+
+
+
+
+</h5>
+
+
+<hr>
+
+
+<h1 style="background-color: white; padding-bottom: 10px;padding-top: 10px">
+
+	<a href="{% url 'postform' %}" ><center ><b style="color:rgb(143, 150, 153); background-color: whitesmoke; border-radius: 12px " class=""><h1><i class="fa fa-edit"></i></h1> <h6>Post your problem...</h6></b></center></a></h1>
+
+
+                      
+                               
+                                {% for post in var %}
+
+
+
+								<div class="central-meta">
+
+									<div class="user-post">
+										<div class="friend-info">
+
+
+
+
+
+
+
+											<div class="description">
+
+
+										<div class="description">
+
+										    	<div class="friend-name">
+
+
+<h2>Search Results</h2>
+
+
+
+
+												<a href="{% url 'userp' username=post.author %}"> <br>&nbsp;&nbsp;&nbsp;<img style="border-radius:1000px; height: 50px;width: 50px"src="{{post.author.profile.profile_image.url}}"  alt=""></br></a> <span><h2 class="account-heading">&nbsp;{{post.author}}</h2></span><sp><h6 style="color: grey">&nbsp;&nbsp;{{post.created_on|timesince}} ago</h6></sp>
+											</div>
+
+
+
+													<h2><article style="padding: 10px">
+												<p><big><b>&nbsp;&nbsp;problem: </b> </big><a>{{ post.problem }}</a></p>
+
+												<p><h6 style="color: black">&nbsp;&nbsp;{{post.title}}</h6></p>
+
+
+												<p><big><b>&nbsp;&nbsp;Issue: </b> </big><a  style=" overflow-wrap:break-word ;"><h6 style="color: grey">&nbsp;&nbsp;{{post.A_brief_Discription|safe }}</h6></p>
+
+                                             </article>
+
+
+
+
+
+											</div>
+											<div class="post-meta">
+										<figure>
+
+
+
+										{% if post.clip_type_html == "image" %}
+										<figure>
+											<img src="{{ post.clip.url }}" alt="img" style="width: 100%  max-width: 400px ; height: auto;" >
+										</figure>
+
+
+
+										    {% elif post.clip_type_html == "video" %}
+										<figure>
+											  <video controls style=" width: 100% ; height: auto;">
+
+										    	<source src="{{ post.clip.url }}">
+
+										    </video>
+										</figure>
+
+
+
+												{% endif %}
+
+												</figure>
+												<div class="we-video-info">
+													<ul>
+
+
+
+
+														<li>
+
+
+
+
+
+
+    <form action="{% url 'like' post.pk %}" method="post" name="like" id="likeform">
+        {% csrf_token %}
+        <button type='submit' name='like' value="{{post.pk}}" class="btn btn-outline-info  btn-sm" ><h4><i class="fa fa-heart" style="color:red  background-color:grey" > Care</c></i></h4></button>
+        <i style="color: grey">{{post.total_likes}}</i>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+														</li>
+
+														<li>
+
+
+														  <form action="{% url 'comment' post.pk %}" method="post" name="like" id="likeform">
+        {% csrf_token %}
+        <button type='submit' name='like' value="{{ post.pk }}" class="btn btn-outline-info  btn-sm" ><h4><i class="fa fa-ambulance" style="color:red  background-color:grey" > Help</c></i></h4></button>
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+														</li>
+
+														<li>
+														<li>
+
+														</li>
+
+
+
+
+
+														</li>
+
+
+                            <td>
+
+
+
+
+
+													</ul>
+
+
+												</div>
+
+											</div>
+										</div>
+
+
+									</div>
+
+								</div><!-- add post new box -->
+
+							</div>
+
+
+
+
+							{% endfor %}
+
+							</div><!-- sidebar -->
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>	
+	</section>
+</div>
+</div>
+
+
+
+
+			<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-4">
+						<div class="widget">
+							<div class="foot-logo">
+								<div class="logo">
+								<a href="#" title=""><img  style="height: 60px ;border-radius:1000px" src="{% static 'images/resources/t.png' %}" alt=""></a>
+								</div>
+								<p>
+									Ashraf Kisoro Lutaaya took this simple idea and built it into a Problem solver plateform inorder to make you happy life
+								</p>
+							</div>
+										<ul class="location">
+								<li>
+									<i class="ti-email"></i>
+									<p>Wiseface@gmail.com</p>
+								</li>
+							
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>follow</h4></div>
+						<ul class="list-style">
+							<li><i class="fa fa-facebook-square"></i> <a  title=""> #wiseface</a></li>
+							<li><i class="fa fa-twitter-square"></i><a  title="">#wiseface</a></li>
+							<li><i class="fa fa-instagram"></i><a  title="">#wiseface</a></li>
+							<li><i class="fa fa-google-plus-square"></i> <a >wiseface@gmail.com</a></li>
+							<li><i class="fa fa-pinterest-square"></i> <a  title="">#wiseface</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>Navigate</h4></div>
+						<ul class="list-style">
+							<li><a href="{% url 'about_us' %}"  title="">about us</a></li>
+
+
+						</ul>
+					</div>
+				</div>
+					<div class="col-lg-2 col-md-4">
+					<div class="widget">
+						<div class="widget-title"><h4>useful links</h4></div>
+						<ul class="list-style">
+
+							<li><a href="{% url 'usage' %}"  title="">Support & Help</a></li>
+
+						</ul>
+					</div>
+				</div>
+
+				</div>
+			</div>
+		</footer>
+
+
+
+
+
+
+	<script src="{% static 'js/main.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/map-init.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+
+
+
+      
+
+</body>
+</html>
+
+
+
+

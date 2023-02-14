@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+
+	<title>Wiseface</title>
+	<link rel="icon"  href="{% static 'images/resources/t.png' %}"sizes="16x16" alt="">
+
+
+    <link rel="stylesheet" href="{% static 'css/main.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/color.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/so.css' %}">
+     <link rel="stylesheet" href="{% static 'css/note.css' %}">
+
+
+
+
+</head>
+<body style="background:whitesmoke">
+
+
+<div class="se-pre-con"></div>
+<div class="theme-layout">
+
+	<div class="responsive-header">
+		<div class="mh-head first Sticky">
+
+			<span class="mh-text">
+				<a href="newsfeed.html" title=""><h1>Wiseface</h1></a>
+			</span>
+
+		</div>
+
+
+		<div class="mh-head second">
+
+		</div>
+
+
+
+
+
+
+
+
+	</div><!-- responsive header -->
+
+	
+
+	<div class="topbar stick">
+		<div class="logo">
+<a title="" ><h1 style="color: blue"><b>Wiseface</b></h1></a>
+
+		</div>
+
+		<div class="top-area">
+			<div class="top-search">
+
+			</div>
+
+		<div class="user-img">
+				
+			</div>
+
+		</div>
+	</div><!-- topbar -->
+
+
+
+
+
+
+
+<!-- right sidebar menu -->
+
+
+
+  </div>
+</div>
+
+
+
+  </div>
+</div>
+
+
+<hr>
+
+
+<!-- right sidebar menu -->
+		
+
+<section>
+		<div class="gap2 gray-bg">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="row merged20" id="page-contents">
+							<div class="col-lg-3">
+								<aside class="sidebar static left">
+								</aside>
+							</div><!-- sidebar -->
+<!-- centerl meta -->
+
+
+							<div class="col-lg-6"></br>
+				
+					
+			
+		<div class="central-meta"></br>
+
+
+									<div class="new-postbox"></br>
+
+				
+											<center><div class="logo">
+									<a href="index-2.html" title=""><img  style="height: 60px ;border-radius:1000px" src="{% static 'images/resources/t.png' %}" alt=""></a>
+								</div>
+
+<p>
+	
+</p>
+									 <h5 class="" style="color: blue"><i class="" ></i>Wiseface</h5></center>
+<hr>
+
+								{%block content%}
+<div class="center">
+	<form method="post" class="card">
+
+		{% csrf_token %}
+	    <h6 class="text-center">| Register</h6>
+		{% for field in form %}
+	    		{{ field.label_tag }} 
+	        	{{ field }}
+	        	{% if field.errors %}
+	        		<small>{{ field.errors|striptags  }}</small> 
+	        	{% endif %}
+		{% endfor %}
+		<hr>
+		<div class="form-buttons">
+			<input type="submit" value="Register" class="btn btn-primary">
+									                         				<div class="button-box">
+				<div id="btn"></div>
+				<a href="{% url 'login' %}"><b type="button" class="toggle-btn" id="log" onclick="login()" style="color: rgb(28, 195, 218)">| LogIn</b></a> 
+				
+
+									
+								</div>
+		</div>
+	</form>
+	</div>
+{%endblock content%}
+
+
+			
+			
+                                    
+									</div>
+
+
+									
+
+
+                          
+							
+								<!-- add post new box-->
+							</div><!-- centerl meta -->
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>	
+	</section>
+	
+
+
+
+</div>.
+
+
+
+<div class="side-panel">
+		<center><h4 style="color: rgb(49, 177, 49)">LogOut</h4></center>
+		<center><a href="{% url 'logout' %}" ><i></i><button class="btn btn-primary">logout</button></a></center>
+
+</div><!-- side panel -->	
+
+
+
+
+		
+
+	<script src="{% static 'js/main.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/map-init.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+
+</body>	
+</html>
